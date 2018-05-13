@@ -15,8 +15,7 @@
        (with-current-buffer ,buffer
 	 (erase-buffer)
 	 (mapcar (lambda (f)
-		   (princ f (current-buffer))
-		   (newline))
+		   (print f (current-buffer)))
 		 (quote ,body))
 	 (save-buffer)))))
 
