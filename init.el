@@ -32,6 +32,7 @@
   (require 'dired-x)
   (setq dired-omit-mode t)
   (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
+  (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 
   (setq shell-switcher-mode t)
   (define-key
