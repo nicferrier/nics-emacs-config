@@ -1,0 +1,14 @@
+emacs-crystal-mode git@github.com:dotmilk/emacs-crystal-mode.git
+emacs-framesize git@github.com:nicferrier/emacs-framesize
+goflymake git@github.com:dougm/goflymake.git
+go-mode.el git@github.com:dominikh/go-mode.el.git
+key-chord git@github.com:emacsorphanage/key-chord.git
+markdown-mode https://github.com/jrblevin/markdown-mode.git
+nics-crystal git@github.com:nicferrier/nics-crystal.git
+nics-emacs-java git@github.com:nicferrier/nics-emacs-java.git
+nvm-emacs git@github.com:nicferrier/elnvm.git
+paredit git@github.com:emacsmirror/paredit.git
+plsql git@github.com:nicferrier/emacs-plsql.git
+shell-switcher git@github.com:DamienCassou/shell-switcher.git
+sql-postgres git@github.com:nicferrier/emacs-sql-postgres.git
+yaml-mode git@github.com:yoshiki/yaml-mode.git
