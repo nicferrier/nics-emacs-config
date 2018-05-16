@@ -3,15 +3,25 @@
 cat .packages | while read name remote
 do
     clone=$(echo $remote \
-                   | sed -re 's|git@(.*):(.*)(.git)*$|https://\1/\2|p' \
+                   | sed -re 's|git@(.*):(.*)$|https://\1/\2|p' \
                    | uniq)
-    if [ "$DOWNLOAD" == "download" ]
-    then
-        curl ${clone}/archive/master.zip -o ${name}.zip
-        unzip ${name}.zip
-    else
-        git clone $clone $name
-    fi
+
+    case $DOWNLOAD in
+
+        devnull)
+            ;;
+
+        download)
+            download=$(echo $clone | sed -rne 's|(.*).git|\1|p')
+            curl -Ls ${download}/archive/master.zip -o ${name}.zip
+            unzip ${name}.zip
+            ;;
+
+        clone)
+            git clone $clone $name
+            ;;
+
+    esac
 done
 
 # End
