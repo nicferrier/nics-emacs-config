@@ -14,7 +14,9 @@ do
         download)
             download=$(echo $clone | sed -rne 's|(.*).git|\1|p')
             curl -Ls ${download}/archive/master.zip -o .${name}.zip
-            zipdir=$(unzip .${name}.zip | sed -rne 's|creating: (.*)/|\1|p')
+            zipdir=$(unzip .${name}.zip \
+                            | sed -rne 's|creating: (.*)/|\1|p' \
+                            | head -n1)
             mv $zipdir $name
             ;;
 
