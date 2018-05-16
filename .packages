@@ -1,5 +1,5 @@
 emacs-crystal-mode git@github.com:dotmilk/emacs-crystal-mode.git
-emacs-framesize git@github.com:nicferrier/emacs-framesize
+emacs-framesize git@github.com:nicferrier/emacs-framesize.git
 goflymake git@github.com:dougm/goflymake.git
 go-mode.el git@github.com:dominikh/go-mode.el.git
 key-chord git@github.com:emacsorphanage/key-chord.git
