@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOWNLOAD=${DOWNLOAD:-clone}
+
 grep -v '^#' .packages | while read name remote
 do
     clone=$(echo $remote \
