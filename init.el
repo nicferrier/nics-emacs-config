@@ -5,7 +5,7 @@
 ;;; An attempt to make something that doesn't need so much work moving
 ;;; between machines
 
-(defconst emacs-repos "~/emacs-packages")
+(defconst emacs-repos (file-name-directory load-file-name))
 
 (defmacro save-in-file (filename &rest body)
   "Save the Lisp BODY in the FILENAME."
