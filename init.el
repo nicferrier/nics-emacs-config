@@ -34,6 +34,23 @@
   (setq dired-omit-files "^\\.?#\\|^\\.$\\|^\\.\\.$\\|^\\..*$")
   (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 
+  ;; Clojure mode stuff
+  (setenv "LEIN_JVM_OPTS" "-Djline.terminal=dumb") ; otherwise run-lisp won't work
+  (defun runclj (fn &rest args)
+    (message "runclj")
+    (when (equal args '("lein" "repl"))
+      (setq default-directory
+            (locate-dominating-file
+             default-directory "project.clj")))
+    (apply fn args))
+  (add-function :around (symbol-function 'run-lisp) #'runclj)
+  (defun clojure-mode-hook-fn ()
+    (message "a hook!")
+    (paredit-mode)
+    (make-variable-buffer-local 'inferior-lisp-program)
+    (setq inferior-lisp-program "lein repl"))
+  (add-hook 'clojure-mode-hook 'clojure-mode-hook-fn)
+  
   (setq shell-switcher-mode t)
   (define-key
     shell-switcher-mode-map
@@ -54,6 +71,7 @@
   ;; Frame stuff allows growing or shrinking frames
   (add-hook 'after-init-hook 'frame-font-keychord-init))
 
+
 ;; Add the hook
 (add-hook
  'after-init-hook
@@ -61,7 +79,6 @@
    (condition-case err
        (load-file "~/emacs-packages/.after-init.el")
      (error (message "errors during init")))))
-
 
 (defconst emacs-load-paths '()
   "Alist of load-paths keyed by repo-name.
@@ -127,6 +144,7 @@ Argument REPO-NAME the name of the repository to add."
 (load-repo "emacs-framesize")
 (load-repo "nics-emacs-java")
 (load-repo "nvm-emacs")
+(load-repo "clojure-mode")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
