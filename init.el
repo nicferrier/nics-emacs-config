@@ -37,8 +37,9 @@
   ;; Clojure mode stuff
   (setenv "LEIN_JVM_OPTS" "-Djline.terminal=dumb") ; otherwise run-lisp won't work
   (defun runclj (fn &rest args)
-    (message "runclj")
-    (when (equal args '("lein" "repl"))
+    (message "runclj> %S" args)
+    (when (or (equal args '("lein" "repl"))
+	      (equal args '("lein repl")))
       (setq default-directory
             (locate-dominating-file
              default-directory "project.clj")))
