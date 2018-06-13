@@ -35,6 +35,7 @@
   (add-hook 'dired-mode-hook (lambda () (dired-omit-mode)))
 
   ;; Clojure mode stuff
+  (require 'inf-lisp)
   (setenv "LEIN_JVM_OPTS" "-Djline.terminal=dumb") ; otherwise run-lisp won't work
   (defun runclj (fn &rest args)
     (message "runclj> %S" args)
@@ -67,6 +68,7 @@
   (setenv "PAGER" "cat")
 
   ;; Maybe this needs to go in JS mode hook
+  (require 'js)
   (modify-syntax-entry ?` "\"" js-mode-syntax-table)
 
   ;; Frame stuff allows growing or shrinking frames
