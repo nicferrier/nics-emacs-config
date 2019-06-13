@@ -70,6 +70,11 @@
   ;; Maybe this needs to go in JS mode hook
   (require 'js)
   (modify-syntax-entry ?` "\"" js-mode-syntax-table)
+  (add-hook 'js-mode-hook 'js-check-init)
+  (add-hook 'js-mode-hook 'linum-mode)
+
+  (add-to-list 'auto-mode-alist '(".*\\.mjs$" . js-mode))
+
 
   ;; Frame stuff allows growing or shrinking frames
   (add-hook 'after-init-hook 'frame-font-keychord-init))
@@ -148,6 +153,8 @@ Argument REPO-NAME the name of the repository to add."
 (load-repo "nics-emacs-java")
 (load-repo "nvm-emacs")
 (load-repo "clojure-mode")
+(load-repo "js-check")
+(load-repo "typescript.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
