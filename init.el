@@ -75,6 +75,9 @@
 
   (add-to-list 'auto-mode-alist '(".*\\.mjs$" . js-mode))
 
+  ;; rust mode
+  (require 'rust-mode)
+  (add-to-list 'auto-mode-alist '(".*\\.rs$" . rust-mode))
 
   ;; Frame stuff allows growing or shrinking frames
   (add-hook 'after-init-hook 'frame-font-keychord-init))
@@ -155,6 +158,7 @@ Argument REPO-NAME the name of the repository to add."
 (load-repo "clojure-mode")
 (load-repo "js-check")
 (load-repo "typescript.el")
+(load-repo "rust-mode")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
