@@ -3,9 +3,11 @@ emacs-crystal-mode https://github.com/dotmilk/emacs-crystal-mode.git
 emacs-framesize https://github.com/nicferrier/emacs-framesize.git
 goflymake https://github.com/dougm/goflymake.git
 go-mode.el https://github.com/dominikh/go-mode.el.git
+js2-mode git@github.com:mooz/js2-mode.git
 js-check git@github.com:nicferrier/emacs-js-check.git
 key-chord https://github.com/emacsorphanage/key-chord.git
 markdown-mode https://github.com/jrblevin/markdown-mode.git
+motionless-mark git@github.com:nicsferrier-emacs-projects/motionless-mark.git
 nics-crystal https://github.com/nicferrier/nics-crystal.git
 nics-emacs-java https://github.com/nicferrier/nics-emacs-java.git
 nics-emacs-jslint git@github.com:nicferrier/nics-emacs-config.git
