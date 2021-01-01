@@ -70,10 +70,13 @@
   ;; Maybe this needs to go in JS mode hook
   (require 'js)
   (modify-syntax-entry ?` "\"" js-mode-syntax-table)
-  (add-hook 'js-mode-hook 'js-check-init)
+  ;; (add-hook 'js-mode-hook 'js-check-init)   -- let's not use this anymore
   (add-hook 'js-mode-hook 'linum-mode)
 
   (add-to-list 'auto-mode-alist '(".*\\.mjs$" . js-mode))
+
+  (define-key js-mode-map (kbd "C-c <") 'backward-sexp)
+  (define-key js-mode-map (kbd "C-c >") 'forward-sexp)
 
   ;; rust mode
   (require 'rust-mode)
@@ -109,6 +112,8 @@ The load-path before the repo was loaded.")
 (defun load-repo (repo-name)
   "Load the specified repo.
 Argument REPO-NAME the name of the repository to add."
+  (interactive
+   (list (read-directory-name "Lisp program directory:" emacs-repos nil t)))
   (let* ((dir (expand-file-name repo-name emacs-repos))
 	 (entries (directory-files dir t ".*\\.el$")))
     (mapc (lambda (entry)
@@ -141,7 +146,7 @@ Argument REPO-NAME the name of the repository to add."
 
 
 ;; Now load a bunch of packages
-
+(load-repo "motionless-mark")
 (load-repo "paredit")
 (load-repo "go-mode.el")
 ;;(load-repo "goflymake")
