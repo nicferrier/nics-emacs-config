@@ -72,11 +72,11 @@
   (modify-syntax-entry ?` "\"" js-mode-syntax-table)
   ;; (add-hook 'js-mode-hook 'js-check-init)   -- let's not use this anymore
   (add-hook 'js-mode-hook 'linum-mode)
-
-  (add-to-list 'auto-mode-alist '(".*\\.mjs$" . js-mode))
-
+  (add-hook 'js-mode-hook 'electric-pair-mode)
   (define-key js-mode-map (kbd "C-c <") 'backward-sexp)
   (define-key js-mode-map (kbd "C-c >") 'forward-sexp)
+
+  (add-to-list 'auto-mode-alist '(".*\\.mjs$" . js-mode))
 
   ;; rust mode
   (require 'rust-mode)
